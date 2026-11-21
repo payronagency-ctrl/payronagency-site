@@ -122,16 +122,35 @@
       var waUrl = 'https://wa.me/254718639705?text=' + encodeURIComponent(msg);
       var mailUrl = 'mailto:info@payronagency.co.ke?subject=' + encodeURIComponent('Quote request: ' + d.service + ' - ' + d.company) + '&body=' + encodeURIComponent(msg);
 
-      // Optional: send to the Tender Tracker web app when an endpoint is configured
-      var endpoint = form.getAttribute('data-endpoint');
-      if (endpoint) {
-        try { fetch(endpoint, {method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(d)}); } catch (x) {}
+      var btn = document.getElementById('qSubmit');
+      function done(ok){
+        document.querySelectorAll('#qThanks .qwa').forEach(function(a){ a.href = waUrl; });
+        document.getElementById('qMail').href = mailUrl;
+        document.getElementById('qOkNote').hidden = !ok;
+        document.getElementById('qFailNote').hidden = ok;
+        if (ok) document.getElementById('qEmailEcho').textContent = d.email;
+        form.hidden = true;
+        var th = document.getElementById('qThanks'); th.hidden = false; th.focus();
       }
-      window.open(waUrl, '_blank', 'noopener');
-      document.getElementById('qWaAgain').href = waUrl;
-      document.getElementById('qMail').href = mailUrl;
-      form.hidden = true;
-      var th = document.getElementById('qThanks'); th.hidden = false; th.focus();
+      // Send to the Tender Tracker; fall back to WhatsApp if it can't be reached
+      var endpoint = form.getAttribute('data-endpoint');
+      if (!endpoint || !window.fetch) { window.open(waUrl, '_blank', 'noopener'); done(false); return; }
+      btn.disabled = true; btn.textContent = 'Sending...';
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timer = setTimeout(function(){ if (ctl) ctl.abort(); }, 20000);
+      fetch(endpoint, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(d), signal: ctl ? ctl.signal : undefined})
+        .then(function(r){ return r.json(); })
+        .then(function(j){
+          clearTimeout(timer);
+          if (j && j.ok) { done(true); return; }
+          btn.disabled = false; btn.textContent = 'Send request';
+          if (j && /^(phone|email|missing|tender|service)$/.test(j.error)) {
+            err.textContent = 'Please check your details' + (j.error === 'phone' ? ' (phone number)' : j.error === 'email' ? ' (email address)' : '') + ' and try again.';
+            err.hidden = false; return;
+          }
+          done(false);
+        })
+        .catch(function(){ clearTimeout(timer); btn.disabled = false; btn.textContent = 'Send request'; done(false); });
     });
   }
 

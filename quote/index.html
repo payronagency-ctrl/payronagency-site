@@ -54,7 +54,7 @@
 </section>
 <section class="section section-tight">
   <div class="wrap quote-grid">
-    <form class="qform" id="quoteForm" novalidate>
+    <form class="qform" id="quoteForm" data-endpoint="https://script.google.com/macros/s/AKfycbySeI8GTq3uvz_vZlw6h3Ijy7PGCcca_zImPO_O-PWNWY286mykFqp4vVjdKTaghGzR/exec" novalidate>
       <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <div class="f2">
         <label class="fld"><span>Full name <b aria-hidden="true">*</b></span><input name="name" type="text" autocomplete="name" required></label>
@@ -86,12 +86,13 @@
       </div>
       <p class="form-err" id="formErr" role="alert" hidden></p>
       <button class="btn btn-primary btn-lg" type="submit" id="qSubmit">Send request</button>
-      <p class="muted small">Your request opens in WhatsApp with your details filled in, so you just tap send. We use your details only to reply to you. See our <a href="../privacy/">privacy notice</a>.</p>
+      <p class="muted small">Your request goes straight to our desk and we email you a confirmation. We use your details only to reply to you. See our <a href="../privacy/">privacy notice</a>.</p>
     </form>
     <div class="qthanks" id="qThanks" hidden tabindex="-1">
       <h2>Thank you.</h2>
       <p>Your request has reached our desk. We'll contact you on WhatsApp or email within one working day.</p>
-      <p class="muted small">If WhatsApp didn't open, <a id="qWaAgain" href="#" target="_blank" rel="noopener noreferrer">tap here to send it</a> or <a id="qMail" href="#">send it by email</a>.</p>
+      <p class="muted small" id="qOkNote">We've sent a confirmation to <span id="qEmailEcho">your email</span>. Need a faster reply? <a class="qwa" href="#" target="_blank" rel="noopener noreferrer">Send it on WhatsApp too</a>.</p>
+      <p class="muted small" id="qFailNote" hidden>If WhatsApp didn't open, <a class="qwa" id="qWaAgain" href="#" target="_blank" rel="noopener noreferrer">tap here to send it</a> or <a id="qMail" href="#">send it by email</a>.</p>
     </div>
     <aside class="qside">
       <h2 class="foot-h">Prefer to talk?</h2>
