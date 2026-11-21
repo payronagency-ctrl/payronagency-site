@@ -21,8 +21,10 @@
 .nav a:hover{color:var(--ink);background:var(--surface-2)}
 .menu-btn{display:none}
 @media (max-width:960px){
-  .header-cta{display:none}
-  .menu-btn{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;margin-left:auto;width:48px;height:48px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;align-items:center}
+  .header-cta{margin-left:auto;min-height:44px;padding:0 var(--space-4)}
+  .header-cta .cta-long{display:none}
+  .header-cta .cta-short{display:inline}
+  .menu-btn{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;margin-left:0;width:48px;height:48px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;align-items:center}
   .menu-btn span{display:block;width:20px;height:2px;background:var(--navy);transition:transform .25s var(--ease)}
   .menu-btn[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
   .menu-btn[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
@@ -252,3 +254,13 @@ td .muted{font-weight:500}
   .hero-badge strong{font-size:var(--text-lg)}
   .hero-badge span{font-size:var(--text-xs)}
 }
+
+.cta-short{display:none}
+.demo-link{display:inline-flex;align-items:center;gap:var(--space-3);margin-top:var(--space-5);min-height:48px;padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);background:var(--yel);color:var(--navy);font-size:var(--text-sm);text-decoration:none;transition:transform .2s var(--ease),box-shadow .2s}
+.demo-link:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.demo-link strong{font-weight:700}
+.demo-link svg{flex:0 0 auto;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s var(--ease)}
+.demo-link:hover svg{transform:translateX(3px)}
+.demo-dot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#1a7a45;box-shadow:0 0 0 0 rgba(26,122,69,.5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(26,122,69,0)}100%{box-shadow:0 0 0 0 rgba(26,122,69,0)}}
+@media (max-width:560px){.demo-link{border-radius:var(--radius-lg);align-items:flex-start}.demo-dot{margin-top:6px}}
