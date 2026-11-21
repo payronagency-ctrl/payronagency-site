@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://payronagency.co.ke/sitemap.xml

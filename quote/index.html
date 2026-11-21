@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Quote | Payron Agency</title>
+<meta name="description" content="Request a quote for tender preparation, compliance services, institutional supplies or a business system. We reply within one working day.">
+<link rel="canonical" href="https://payronagency.co.ke/quote/">
+<meta property="og:title" content="Request a Quote | Payron Agency">
+<meta property="og:description" content="Request a quote for tender preparation, compliance services, institutional supplies or a business system. We reply within one working day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://payronagency.co.ke/quote/">
+<meta property="og:image" content="https://payronagency.co.ke/assets/hero-supplies.webp">
+<meta name="theme-color" content="#1c1645">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c1645'/%3E%3Cpath d='M10 24V8h7.2c3.6 0 5.8 2 5.8 5.1s-2.2 5.1-5.8 5.1H14V24z M14 14.9h2.9c1.4 0 2.2-.7 2.2-1.8s-.8-1.8-2.2-1.8H14z' fill='%23f5cf0f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="brand-stripe" aria-hidden="true"></div>
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="../" class="logo" aria-label="Payron Agency home"><img src="../assets/logo.jpg" alt="Payron Agency" width="180" height="57"></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="../">Home</a>
+      <a href="../about/">About</a>
+      <div class="nav-group">
+        <button class="nav-drop" type="button" aria-expanded="false" aria-controls="svcMenu">Services<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="nav-sub" id="svcMenu"><a href="../tender-preparation/">Tender Preparation</a><a href="../compliance-services/">Compliance Services</a><a href="../institutional-supplies/">Institutional Supplies</a><a href="../business-systems/">Business Systems</a></div>
+      </div>
+      <a href="../pricing/">Pricing</a>
+      <a href="../faq/">FAQ</a>
+      <a href="../contact/">Contact</a>
+      <a class="nav-quote" href="../quote/" aria-current="page">Get a Quote</a>
+    </nav>
+    <a class="btn btn-yellow header-quote" href="../quote/">Get a Quote</a>
+    <a class="btn btn-primary header-cta" href="https://wa.me/254718639705?text=Hi%20Payron%2C%20I%20would%20like%20a%20demo%20of%20the%20Business%20Management%20System." target="_blank" rel="noopener noreferrer" aria-label="Request a Business Management System demo on WhatsApp"><span class="cta-pre">Request&nbsp;</span>BMS demo</a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Request a Quote</p>
+    <h1>Request a quote.</h1>
+    <p class="lead">Tell us what you need and we'll reply within one working day.</p>
+  </div>
+</section>
+<section class="section section-tight">
+  <div class="wrap quote-grid">
+    <form class="qform" id="quoteForm" novalidate>
+      <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="f2">
+        <label class="fld"><span>Full name <b aria-hidden="true">*</b></span><input name="name" type="text" autocomplete="name" required></label>
+        <label class="fld"><span>Company name <b aria-hidden="true">*</b></span><input name="company" type="text" autocomplete="organization" required></label>
+      </div>
+      <div class="f2">
+        <label class="fld"><span>Phone / WhatsApp <b aria-hidden="true">*</b></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="07XX XXX XXX" required></label>
+        <label class="fld"><span>Email <b aria-hidden="true">*</b></span><input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <label class="fld"><span>Service needed <b aria-hidden="true">*</b></span>
+        <select name="service" id="qService" required>
+          <option value="">Choose a service</option>
+          <option>Tender Preparation</option><option>Prequalification</option><option>Compliance Service</option>
+          <option>Institutional Supply</option><option>Business System</option><option>Other</option>
+        </select></label>
+      <fieldset class="tender-fields" id="tenderFields" hidden>
+        <legend>Tender details</legend>
+        <div class="f3">
+          <label class="fld"><span>Tender number <b aria-hidden="true">*</b></span><input name="tender_no" type="text"></label>
+          <label class="fld"><span>Procuring entity <b aria-hidden="true">*</b></span><input name="entity" type="text"></label>
+          <label class="fld"><span>Submission deadline <b aria-hidden="true">*</b></span><input name="deadline" type="date"></label>
+        </div>
+      </fieldset>
+      <label class="fld"><span>What do you need? <b aria-hidden="true">*</b></span><textarea name="need" rows="5" placeholder="Items and quantities, or the tender title" required></textarea></label>
+      <div class="f2">
+        <label class="fld"><span>Tender document or LPO link <i>(optional)</i></span><input name="doc" type="url" placeholder="Google Drive link, or email us the file"></label>
+        <label class="fld"><span>How did you hear about us? <i>(optional)</i></span>
+          <select name="source"><option value="">Choose one</option><option>Google</option><option>WhatsApp</option><option>Referral</option><option>LinkedIn</option><option>Other</option></select></label>
+      </div>
+      <p class="form-err" id="formErr" role="alert" hidden></p>
+      <button class="btn btn-primary btn-lg" type="submit" id="qSubmit">Send request</button>
+      <p class="muted small">Your request opens in WhatsApp with your details filled in, so you just tap send. We use your details only to reply to you. See our <a href="../privacy/">privacy notice</a>.</p>
+    </form>
+    <div class="qthanks" id="qThanks" hidden tabindex="-1">
+      <h2>Thank you.</h2>
+      <p>Your request has reached our desk. We'll contact you on WhatsApp or email within one working day.</p>
+      <p class="muted small">If WhatsApp didn't open, <a id="qWaAgain" href="#" target="_blank" rel="noopener noreferrer">tap here to send it</a> or <a id="qMail" href="#">send it by email</a>.</p>
+    </div>
+    <aside class="qside">
+      <h2 class="foot-h">Prefer to talk?</h2>
+      <p><a href="tel:+254718639705">0718 639 705</a><br><a href="tel:+254723555908">0723 555 908</a></p>
+      <p><a href="mailto:info@payronagency.co.ke">info@payronagency.co.ke</a></p>
+      <p class="muted">Interfina Building, 2nd Floor, Ronald Ngala Street, Nairobi</p>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <p class="foot-mark">PAYRON <span>AGENCY</span></p>
+        <p class="foot-tag">Tender Preparation · Institutional Supplies · Procurement &amp; Compliance Support · Business Systems</p>
+        <a class="btn btn-yellow" href="https://wa.me/254718639705?text=Hi%20Payron%2C%20I%20found%20you%20on%20your%20website." target="_blank" rel="noopener noreferrer"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>Chat on WhatsApp</span></a>
+      </div>
+      <div>
+        <h2 class="foot-h">Services</h2>
+        <ul class="foot-links"><li><a href="../tender-preparation/">Tender Preparation</a></li><li><a href="../compliance-services/">Compliance Services</a></li><li><a href="../institutional-supplies/">Institutional Supplies</a></li><li><a href="../business-systems/">Business Systems</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot-h">Company</h2>
+        <ul class="foot-links"><li><a href="../about/">About</a></li><li><a href="../pricing/">Pricing</a></li><li><a href="../faq/">FAQ</a></li><li><a href="../quote/">Request a Quote</a></li><li><a href="../contact/">Contact</a></li></ul>
+      </div>
+      <div>
+        <h2 class="foot-h">Contact</h2>
+        <ul class="foot-links foot-contact">
+          <li><a href="tel:+254718639705">0718 639 705</a> · <a href="tel:+254723555908">0723 555 908</a></li>
+          <li><a href="mailto:info@payronagency.co.ke">info@payronagency.co.ke</a></li>
+          <li>Interfina Building, 2nd Floor, Ronald Ngala Street, Nairobi</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>© <span id="yr">2026</span> Payron Agency. Nairobi, Kenya.</p>
+      <p><a href="../privacy/">Privacy</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../app.js" defer></script>
+</body>
+</html>
