@@ -154,5 +154,32 @@
     });
   }
 
+
+  // tender alerts sign-up
+  document.querySelectorAll('.alerts-form').forEach(function(f){
+    var err = f.querySelector('.form-err'), btn = f.querySelector('button[type=submit]'), ok = f.querySelector('.alerts-done');
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (f.website.value) return;
+      var bad = [];
+      f.querySelectorAll('input').forEach(function(i){ if (i.name === 'website') return; if (!i.checkValidity()) { i.setAttribute('aria-invalid','true'); bad.push(i); } else i.removeAttribute('aria-invalid'); });
+      if (bad.length) { err.textContent = 'Please fill in the highlighted fields and tick the box.'; err.hidden = false; bad[0].focus(); return; }
+      err.hidden = true;
+      var d = { website:'', name:f.name.value.trim(), phone:f.phone.value.trim(), company:f.company.value.trim(), email:'', service:'Tender Alerts', source:'Other',
+        need:'TENDER ALERTS SIGN-UP (weekly on WhatsApp, consent given). Supplies: ' + f.supplies.value.trim() };
+      var waMsg = 'Hello Payron, please add me to your weekly tender alerts.\nName: ' + d.name + '\nCompany: ' + (d.company || '-') + '\nI supply: ' + f.supplies.value.trim();
+      function fin(){ f.querySelectorAll('.f2,.fld,.consent,button').forEach(function(x){ x.hidden = true; }); ok.hidden = false; ok.focus(); }
+      btn.disabled = true; btn.textContent = 'Sending...';
+      fetch(f.getAttribute('data-endpoint'), {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(d)})
+        .then(function(r){ return r.json(); })
+        .then(function(j){
+          if (j && j.ok) return fin();
+          btn.disabled = false; btn.textContent = 'Send me tender alerts';
+          err.textContent = j && j.error === 'phone' ? 'Please check your WhatsApp number.' : 'Something went wrong. Please try again or message us on WhatsApp.'; err.hidden = false;
+        })
+        .catch(function(){ window.open('https://wa.me/254718639705?text=' + encodeURIComponent(waMsg), '_blank', 'noopener'); fin(); });
+    });
+  });
+
   var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
 })();

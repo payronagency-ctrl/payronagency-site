@@ -427,3 +427,21 @@ h1.h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-4)}
 .page-art{display:block;width:100%;max-width:440px;height:auto;justify-self:end}
 .faq-art{margin-top:var(--space-8);max-width:380px;justify-self:start}
 @media (max-width:860px){.head-art{grid-template-columns:1fr}.page-art{max-width:340px;justify-self:start}}
+
+/* floating WhatsApp button */
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;font-weight:700;font-size:15px;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.22);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
+.wa-float svg{width:26px;height:26px;fill:#fff;flex:none}
+.wa-float:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.28)}
+@media (max-width:640px){.wa-float{padding:14px;right:14px;bottom:14px}.wa-float span{display:none}}
+@media print{.wa-float{display:none}}
+/* tender alerts */
+.alerts{background:var(--surface-2)}
+.alerts-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.alerts h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-4)}
+.alerts-points{display:grid;gap:8px;margin-top:var(--space-5)}
+.alerts-points li{position:relative;padding-left:26px;font-weight:500}
+.alerts-points li::before{content:"\2713";position:absolute;left:0;color:var(--blue);font-weight:800}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:var(--text-sm)}
+.consent input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--navy)}
+.alerts-done{font-size:var(--text-lg)}
+@media (max-width:860px){.alerts-grid{grid-template-columns:1fr}}
