@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-label="A quote request form being sent">
+<rect x="20" y="30" width="440" height="300" rx="28" fill="#efede5"/>
+<rect x="80" y="60" width="200" height="250" rx="16" fill="#fff" stroke="#1c1645" stroke-opacity=".15"/>
+<rect x="140" y="48" width="80" height="28" rx="10" fill="#1c1645"/>
+<rect x="104" y="100" width="110" height="10" rx="5" fill="#1c1645"/>
+<g fill="#1c1645" opacity=".18"><rect x="104" y="126" width="152" height="22" rx="6"/><rect x="104" y="160" width="152" height="22" rx="6"/><rect x="104" y="194" width="152" height="44" rx="6"/></g>
+<rect x="104" y="254" width="96" height="30" rx="15" fill="#f5cf0f"/><text x="152" y="274" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="12" fill="#1c1645">SEND</text>
+<g transform="translate(300 120) rotate(-18)"><path d="M0 40 L110 0 L70 100 L52 58 Z" fill="#2342d8"/><path d="M52 58 L110 0 L40 50 Z" fill="#1c1645" opacity=".35"/></g>
+<path d="M270 250 q40 10 50 -40" fill="none" stroke="#1c1645" stroke-opacity=".35" stroke-width="3" stroke-dasharray="6 8" stroke-linecap="round"/>
+<g transform="translate(372 258)"><circle r="34" fill="#1c1645"/><text y="-2" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="17" fill="#f5cf0f">1 day</text><text y="16" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#fff">reply</text></g>
+</svg>

@@ -421,3 +421,9 @@ h1.h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-4)}
 .hero h1{font-size:clamp(2.1rem,1.5rem + 2.6vw,3.5rem)}
 .trust-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
 .trust-n{margin-left:0}
+
+/* page illustrations */
+.head-art{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:center}
+.page-art{display:block;width:100%;max-width:440px;height:auto;justify-self:end}
+.faq-art{margin-top:var(--space-8);max-width:380px;justify-self:start}
+@media (max-width:860px){.head-art{grid-template-columns:1fr}.page-art{max-width:340px;justify-self:start}}
