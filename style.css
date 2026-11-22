@@ -445,3 +445,16 @@ h1.h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-4)}
 .consent input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--navy)}
 .alerts-done{font-size:var(--text-lg)}
 @media (max-width:860px){.alerts-grid{grid-template-columns:1fr}}
+
+/* client portal */
+.portal-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.portal h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-4)}
+.portal-btns{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-6)}
+.portal-note{margin-top:var(--space-3)}
+.portal-steps{display:grid;gap:var(--space-4)}
+.portal-steps li{display:flex;gap:var(--space-4);align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-5)}
+.portal-steps span{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--yel);font-weight:800}
+.portal-steps h3{font-size:var(--text-lg);font-weight:800;margin-bottom:4px}
+@media (max-width:860px){.portal-grid{grid-template-columns:1fr}}
+
+.nav a{white-space:nowrap}
