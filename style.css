@@ -458,3 +458,11 @@ h1.h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-4)}
 @media (max-width:860px){.portal-grid{grid-template-columns:1fr}}
 
 .nav a{white-space:nowrap}
+
+/* websites service */
+.web-svc{margin-top:clamp(3rem,6vw,5rem);padding:clamp(1.5rem,4vw,3rem);border-radius:var(--radius-xl);background:linear-gradient(135deg,rgba(245,207,15,.14),rgba(35,66,216,.18));border:1px solid rgba(255,255,255,.15)}
+.web-svc h3{font-size:var(--text-2xl);font-weight:800;margin:var(--space-2) 0 var(--space-3)}
+.web-svc>div>p{max-width:62ch}
+.web-svc .mods{margin:var(--space-5) 0}
+.web-btns{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-5)}
+.web-ghost{color:#fff;border-color:rgba(255,255,255,.4)}
