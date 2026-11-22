@@ -181,5 +181,28 @@
     });
   });
 
+
+  // generic sign-up forms (training etc.)
+  document.querySelectorAll('.signup-form').forEach(function(f){
+    var err = f.querySelector('.form-err'), btn = f.querySelector('button[type=submit]'), ok = f.querySelector('.alerts-done'), label = btn.textContent;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (f.website.value) return;
+      var bad = [];
+      f.querySelectorAll('input,select').forEach(function(i){ if (i.name === 'website') return; if (!i.checkValidity()) { i.setAttribute('aria-invalid','true'); bad.push(i); } else i.removeAttribute('aria-invalid'); });
+      if (bad.length) { err.textContent = 'Please fill in the highlighted fields.'; err.hidden = false; bad[0].focus(); return; }
+      err.hidden = true;
+      var svc = f.getAttribute('data-service'), extra = [];
+      f.querySelectorAll('input,select').forEach(function(i){ if (['website','name','phone','company'].indexOf(i.name) === -1 && i.value) extra.push((i.closest('label').querySelector('span') || {textContent:i.name}).textContent.replace('*','').trim() + ': ' + i.value); });
+      var d = { website:'', name:f.name.value.trim(), phone:f.phone.value.trim(), company:f.company.value.trim() || '(individual)', email:'', service:svc, source:'Other', need: svc.toUpperCase() + ' REQUEST. ' + extra.join(' | ') };
+      function fin(){ f.querySelectorAll('.f2,.fld,button').forEach(function(x){ x.hidden = true; }); ok.hidden = false; ok.focus(); }
+      btn.disabled = true; btn.textContent = 'Sending...';
+      fetch(f.getAttribute('data-endpoint'), {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(d)})
+        .then(function(r){ return r.json(); })
+        .then(function(j){ if (j && j.ok) return fin(); btn.disabled = false; btn.textContent = label; err.textContent = j && j.error === 'phone' ? 'Please check your phone number.' : 'Something went wrong. Please try again or message us on WhatsApp.'; err.hidden = false; })
+        .catch(function(){ window.open('https://wa.me/254718639705?text=' + encodeURIComponent('Hello Payron. ' + d.need + ' Name: ' + d.name), '_blank', 'noopener'); fin(); });
+    });
+  });
+
   var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
 })();
