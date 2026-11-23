@@ -204,5 +204,45 @@
     });
   });
 
+
+  // review form (posts to intake as form:'review')
+  document.querySelectorAll('.review-form').forEach(function(f){
+    var err = f.querySelector('.form-err'), btn = f.querySelector('button[type=submit]'), ok = f.querySelector('.alerts-done'), label = btn.textContent;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (f.website.value) return;
+      var r = f.querySelector('input[name=rating]:checked');
+      if (!r) { err.textContent = 'Please choose a star rating.'; err.hidden = false; f.querySelector('input[name=rating]').focus(); return; }
+      if (!f.service.value) { f.service.setAttribute('aria-invalid','true'); err.textContent = 'Please choose what we helped you with.'; err.hidden = false; f.service.focus(); return; }
+      f.service.removeAttribute('aria-invalid'); err.hidden = true;
+      var d = { website:'', form:'review', rating:Number(r.value), service:f.service.value, comment:f.comment.value.trim(), name:f.name.value.trim(), company:f.company.value.trim(), share:f.share.checked };
+      function fin(){ f.querySelectorAll('.f2,.fld,.consent,button').forEach(function(x){ x.hidden = true; }); if (d.rating >= 4) ok.querySelector('.rv-google').hidden = false; ok.hidden = false; ok.focus(); }
+      btn.disabled = true; btn.textContent = 'Sending...';
+      fetch(f.getAttribute('data-endpoint'), {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(d)})
+        .then(function(x){ return x.json(); })
+        .then(function(j){ if (j && j.ok) return fin(); btn.disabled = false; btn.textContent = label; err.textContent = 'Something went wrong. Please try again or message us on WhatsApp.'; err.hidden = false; })
+        .catch(function(){ btn.disabled = false; btn.textContent = label; err.textContent = 'Could not send. Please check your connection and try again.'; err.hidden = false; });
+    });
+  });
+
+  // client stories (approved reviews only; section stays hidden if there are none)
+  var stories = document.getElementById('client-stories');
+  if (stories && window.fetch) {
+    fetch(stories.getAttribute('data-endpoint') + '?reviews=1')
+      .then(function(x){ return x.json(); })
+      .then(function(j){
+        var list = (j && j.reviews) || []; if (!list.length) return;
+        var grid = stories.querySelector('.stories-grid');
+        list.forEach(function(rv){
+          var c = document.createElement('figure'); c.className = 'story';
+          var st = document.createElement('div'); st.className = 'story-stars'; st.setAttribute('aria-label', rv.rating + ' out of 5 stars'); st.textContent = '★★★★★'.slice(0, rv.rating);
+          var q = document.createElement('blockquote'); q.textContent = rv.comment;
+          var cap = document.createElement('figcaption'); cap.textContent = rv.service + ' client';
+          c.appendChild(st); c.appendChild(q); c.appendChild(cap); grid.appendChild(c);
+        });
+        stories.hidden = false;
+      }).catch(function(){});
+  }
+
   var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
 })();
