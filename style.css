@@ -502,3 +502,8 @@ h1.h2{font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-4)}
 .story blockquote{margin:0;font-size:1.05rem;line-height:1.55;color:#1c1645}
 .story figcaption{color:#5d597a;font-size:.9rem;font-weight:600}
 .stories-note{margin-top:18px}
+
+/* service detail pages */
+.svc-note{margin-top:20px;max-width:760px}
+.doc-list{margin-top:18px}
+.rel-links{display:flex;flex-direction:column;gap:10px;margin-top:8px}
